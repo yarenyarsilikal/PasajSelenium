@@ -41,7 +41,7 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-### Test ###
+### Test.TestScenerios ###
 ### Ignore all files that could be used to test your code and
 ### you wouldn't want to push
 
