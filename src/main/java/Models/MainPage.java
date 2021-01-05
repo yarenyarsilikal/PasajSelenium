@@ -1,18 +1,17 @@
 package Models;
 
-import Utils.Constants;
-import Utils.LogUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 
-public class MainPage {
+public class MainPage extends Actions {
     protected static WebDriver driver;
 
     private By search = By.xpath("//a[@title='Arama']");
     private By searchInput = By.name("qx");
     private By pasaj = By.xpath("//a[@title='Pasaj']");
+
 
     private String className = this.getClass().getName();
 
@@ -23,19 +22,18 @@ public class MainPage {
 
 
     public void clickSearch() {
-        LogUtil.log(Constants.CLICK_ELEMENT + search, LogUtil.LogType.INFO, className);
-        driver.findElement(search).click();
+        clickElement(driver, 10, search, className);
     }
 
     public SearchResult search(String deviceName) {
-        LogUtil.log(Constants.SEND_KEY_TO_ELEMENT + deviceName, LogUtil.LogType.INFO, className);
-        driver.findElement(searchInput).sendKeys(deviceName);
-        LogUtil.log(Constants.SEND_KEY_TO_ELEMENT + Keys.ENTER, LogUtil.LogType.INFO, className);
-        driver.findElement(searchInput).sendKeys(Keys.ENTER);
+        setText(driver, searchInput, deviceName, className);
+        setText(driver, searchInput, Keys.ENTER, className);
         return new SearchResult(driver);
     }
 
-    public void clickPasaj(String userName) {
-        driver.findElement(pasaj).click();
+    public Pasaj clickPasaj() {
+        clickElement(driver, 10, pasaj, className);
+        return new Pasaj(driver);
     }
+
 }

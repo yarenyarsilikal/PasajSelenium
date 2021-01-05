@@ -1,14 +1,10 @@
 package Models;
 
-import Utils.LogUtil;
-import Utils.Utils;
-import Utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 
-public class SearchResult {
+public class SearchResult extends Actions {
     protected static WebDriver driver;
 
     private By devicesTab = By.xpath("//a[@title='Cihazlar']");
@@ -22,17 +18,14 @@ public class SearchResult {
 
 
     public void clickDevicesTab() {
-        LogUtil.log(Constants.FINDING_ELEMENT + devicesTab, LogUtil.LogType.INFO, className);
-        driver.findElement(devicesTab).click();
+        clickElement(driver, 10, devicesTab, className);
     }
 
     public String getDeviceName() {
-        LogUtil.log(Constants.FINDING_ELEMENT + firstDevice, LogUtil.LogType.INFO, className);
-        return driver.findElement(firstDevice).getText();
+        return getText(driver,firstDevice,className);
     }
 
     public void verifyDeviceName(String expectedDeviceName, String actualDeviceName ) {
-        LogUtil.log(Constants.VERIFY_TEXT_EQUALS + actualDeviceName + " || " + expectedDeviceName, LogUtil.LogType.INFO, className);
-        Assert.assertEquals(Utils.toUpperCase(actualDeviceName), Utils.toUpperCase(expectedDeviceName));
+        verifyTextEqualsToData(actualDeviceName, expectedDeviceName, className);
     }
 }

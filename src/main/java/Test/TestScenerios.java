@@ -1,6 +1,7 @@
 package Test;
 
 import Models.MainPage;
+import Models.Pasaj;
 import Models.SearchResult;
 import Utils.Constants;
 import org.apache.log4j.PropertyConfigurator;
@@ -39,6 +40,30 @@ public class TestScenerios {
         searchResult.verifyDeviceName(Constants.DEVICE_NAME, actualDeviceName);
     }
 
+    @Test(priority = 2)
+    public void checkEmptyBasket() {
+        mainPage = new MainPage(driver);
 
+        Pasaj pasaj = mainPage.clickPasaj();
+        pasaj.clickCart();
+
+        String actualLabel = pasaj.getEmptyLabel();
+        pasaj.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);
+    }
+
+    @Test(priority = 3)
+    public void checkPrice() {
+        mainPage = new MainPage(driver);
+
+        Pasaj pasaj = mainPage.clickPasaj();
+
+
+
+
+        pasaj.clickCart();
+
+        String actualLabel = pasaj.getEmptyLabel();
+        pasaj.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);
+    }
 
 }
