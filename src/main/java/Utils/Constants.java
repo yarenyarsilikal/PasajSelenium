@@ -23,11 +23,12 @@ public class Constants {
     public static final String COULD_NOT_GET_TEXT_OF_ELEMENT = "Could not get text of element || Locator =>";
     public static final String TEXT_OF_ELEMENT = "Text of element || Text =>";
     public static final String VERIFY_TEXT_EQUALS = "Verifying text equals to verification data: ";
+    public static final String VERIFY_TRUE = "Verifying data is true: ";
+    public static final String COULD_NOT_VERIFY_TRUE = "Could not verify data is true: ";
     public static final String VERIFY_ELEMENT_DISPLAYED = "Verify element displayed || Locator => ";
     public static final String COULD_NOT_VERIFY_ELEMENT_DISPLAYED = "Could not verify element displayed || Locator => ";
 
 
-
-
     public static final String ERROR = " Error: ";
+    public static final String EXPECTED_PRICE = "1000";
 }

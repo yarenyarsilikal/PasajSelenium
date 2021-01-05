@@ -8,7 +8,9 @@ public class Utils {
         return string.toUpperCase(Locale.US);
     }
 
-    public static int toInt(String string) {
-        return Integer.parseInt(string);
+    public static float toFloat(String string) {
+        string = string.replace(".","");
+        string = string.replace(',','.');
+        return Float.parseFloat(string);
     }
 }
