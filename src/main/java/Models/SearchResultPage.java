@@ -4,16 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class SearchResult extends Actions {
+public class SearchResultPage extends Actions {
     protected static WebDriver driver;
 
-    private By devicesTab = By.xpath("//a[@title='Cihazlar']");
-    private By firstDevice = By.xpath("//*[@id='tabDevices']/div[1]/a/div/span");
-    private String className = this.getClass().getName();
+    private final By devicesTab = By.xpath("//a[@title='Cihazlar']");
+    private final By firstDevice = By.xpath("//*[@id='tabDevices']/div[1]/a/div/span");
+
+    private final String className = this.getClass().getName();
 
 
-    public SearchResult(WebDriver driver) {
-        this.driver = driver;
+    public SearchResultPage(WebDriver driver) {
+        SearchResultPage.driver = driver;
     }
 
 

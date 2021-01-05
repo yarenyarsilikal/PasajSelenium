@@ -3,18 +3,20 @@ package Models;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Pasaj extends Actions {
+public class PasajPage extends Actions {
 
     protected static WebDriver driver;
 
-    private By basket = By.xpath("//a[contains(@class,'basket')]");
-    private By emptyBasket = By.xpath("//div[contains(@class, 'info-card')]/h3");
+    private final By basket = By.xpath("//a[contains(@class,'basket')]");
+    private final By emptyBasket = By.xpath("//div[contains(@class, 'info-card')]/h3");
+    private final By macbook = By.xpath("//a[@title='Apple Macbook']");
 
-    private String className = this.getClass().getName();
+
+    private final String className = this.getClass().getName();
 
 
-    public Pasaj(WebDriver driver) {
-        this.driver = driver;
+    public PasajPage(WebDriver driver) {
+        PasajPage.driver = driver;
     }
 
     public void clickCart() {
@@ -31,6 +33,11 @@ public class Pasaj extends Actions {
 
     public void scrollToBottom() {
         scrollToEndOfPage(driver, className);
+    }
+
+    public FilteredList clickMacbook(){
+        clickElement(driver, 10, macbook, className);
+        return new FilteredList(driver);
     }
 
 

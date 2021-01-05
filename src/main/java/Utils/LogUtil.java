@@ -16,6 +16,16 @@ public class LogUtil {
 
     public static void log(Object message, LogType logType, String className) {
         message = logType.toString() + " " + message.toString() + className;
+        logMessage(message, logType);
+
+    }
+
+    public static void log(Object message, LogType logType, String className, Exception e) {
+        message = logType.toString() + " " + message.toString() + Constants.ERROR + e + className;
+        logMessage(message, logType);
+    }
+
+    public static void logMessage(Object message, LogType logType) {
         switch (logType) {
             case FATAL:
                 log.fatal(message);
@@ -32,6 +42,7 @@ public class LogUtil {
 
         }
     }
+
 
 
 }

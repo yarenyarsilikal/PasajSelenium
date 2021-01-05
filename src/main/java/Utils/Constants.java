@@ -6,6 +6,8 @@ public class Constants {
     public static final String LOG4J_PATH = "src/main/resources/log4j.properties";
     public static final String DRIVER_PATH = "C:\\Driver\\chromedriver.exe";
     public static final String DEVICE_NAME = "iphone 12 pro max 512 gb";
+    public static final String MACBOOK_NAME = "Apple MacBook Pro Touch Bar 13 inç";
+
 
     public static final String EMPTY_BASKET_LABEL = "Sepetinizde ürün bulunmamaktadır.";
 
@@ -14,12 +16,18 @@ public class Constants {
     //Log Messages
     public static final String SCROLL_TO_END = "Scrolling to end of page";
     public static final String CLICK_ELEMENT = "Clicking on the element || Locator =>";
+    public static final String COULD_NOT_CLICK_ELEMENT = "Could not click on the element || Locator =>";
     public static final String SEND_KEY_TO_ELEMENT = "Sending key to element || Key =>";
+    public static final String COULD_NOT_SEND_KEY_TO_ELEMENT = "Could not send key to element || Locator =>";
     public static final String GET_TEXT_OF_ELEMENT = "Getting text of element || Locator =>";
+    public static final String COULD_NOT_GET_TEXT_OF_ELEMENT = "Could not get text of element || Locator =>";
     public static final String TEXT_OF_ELEMENT = "Text of element || Text =>";
-
-
     public static final String VERIFY_TEXT_EQUALS = "Verifying text equals to verification data: ";
+    public static final String VERIFY_ELEMENT_DISPLAYED = "Verify element displayed || Locator => ";
+    public static final String COULD_NOT_VERIFY_ELEMENT_DISPLAYED = "Could not verify element displayed || Locator => ";
 
 
+
+
+    public static final String ERROR = " Error: ";
 }

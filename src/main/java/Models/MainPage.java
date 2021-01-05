@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 public class MainPage extends Actions {
     protected static WebDriver driver;
 
-    private By search = By.xpath("//a[@title='Arama']");
-    private By searchInput = By.name("qx");
-    private By pasaj = By.xpath("//a[@title='Pasaj']");
+    private final By search = By.xpath("//a[@title='Arama']");
+    private final By searchInput = By.name("qx");
+    private final By pasaj = By.xpath("//a[@title='Pasaj']");
 
 
-    private String className = this.getClass().getName();
+    private final String className = this.getClass().getName();
 
 
     public MainPage(WebDriver driver) {
-        this.driver = driver;
+        MainPage.driver = driver;
     }
 
 
@@ -25,15 +25,15 @@ public class MainPage extends Actions {
         clickElement(driver, 10, search, className);
     }
 
-    public SearchResult search(String deviceName) {
+    public SearchResultPage search(String deviceName) {
         setText(driver, searchInput, deviceName, className);
         setText(driver, searchInput, Keys.ENTER, className);
-        return new SearchResult(driver);
+        return new SearchResultPage(driver);
     }
 
-    public Pasaj clickPasaj() {
+    public PasajPage clickPasaj() {
         clickElement(driver, 10, pasaj, className);
-        return new Pasaj(driver);
+        return new PasajPage(driver);
     }
 
 }

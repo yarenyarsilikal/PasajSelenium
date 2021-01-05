@@ -1,8 +1,8 @@
 package Test;
 
 import Models.MainPage;
-import Models.Pasaj;
-import Models.SearchResult;
+import Models.PasajPage;
+import Models.SearchResultPage;
 import Utils.Constants;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
@@ -33,37 +33,37 @@ public class TestScenerios {
         mainPage = new MainPage(driver);
         mainPage.clickSearch();
 
-        SearchResult searchResult = mainPage.search(Constants.DEVICE_NAME);
-        searchResult.clickDevicesTab();
+        SearchResultPage searchResultPage = mainPage.search(Constants.DEVICE_NAME);
+        searchResultPage.clickDevicesTab();
 
-        String actualDeviceName = searchResult.getDeviceName();
-        searchResult.verifyDeviceName(Constants.DEVICE_NAME, actualDeviceName);
+        String actualDeviceName = searchResultPage.getDeviceName();
+        searchResultPage.verifyDeviceName(Constants.DEVICE_NAME, actualDeviceName);
     }
 
     @Test(priority = 2)
     public void checkEmptyBasket() {
         mainPage = new MainPage(driver);
 
-        Pasaj pasaj = mainPage.clickPasaj();
-        pasaj.clickCart();
+        PasajPage pasajPage = mainPage.clickPasaj();
+        pasajPage.clickCart();
 
-        String actualLabel = pasaj.getEmptyLabel();
-        pasaj.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);
+        String actualLabel = pasajPage.getEmptyLabel();
+        pasajPage.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);
     }
 
     @Test(priority = 3)
     public void checkPrice() {
         mainPage = new MainPage(driver);
 
-        Pasaj pasaj = mainPage.clickPasaj();
+        PasajPage pasajPage = mainPage.clickPasaj();
 
 
 
 
-        pasaj.clickCart();
+        pasajPage.clickCart();
 
-        String actualLabel = pasaj.getEmptyLabel();
-        pasaj.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);
+        String actualLabel = pasajPage.getEmptyLabel();
+        pasajPage.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);
     }
 
 }
