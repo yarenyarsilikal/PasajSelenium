@@ -16,18 +16,39 @@ public class MainPage extends BaseModel {
         super(driver, MainPage.class.getName());
     }
 
+    /**
+     * Clicks search element
+     */
     public void clickSearch() {
-        actions.clickElement(driver, 10, search);
+        actions.clickElement(driver, search);
     }
 
-    public SearchResultPage search(String deviceName) {
+    /**
+     * Sets search input
+     *
+     * @param deviceName
+     */
+    public void setSearchInput(String deviceName) {
         actions.setText(driver, searchInput, deviceName);
+    }
+
+    /**
+     * Click enter for search input
+     *
+     * @return SearchResultPage object
+     */
+    public SearchResultPage enterSearchIntput() {
         actions.setText(driver, searchInput, Keys.ENTER);
         return new SearchResultPage(driver);
     }
 
+    /**
+     * Click pasaj element
+     *
+     * @return PasajPage object
+     */
     public PasajPage clickPasaj() {
-        actions.clickElement(driver, 10, pasaj);
+        actions.clickElement(driver, pasaj);
         return new PasajPage(driver);
     }
 

@@ -13,4 +13,8 @@ public class Utils {
         string = string.replace(',','.');
         return Float.parseFloat(string);
     }
+
+    public static boolean isGreater(Float a, Float b) {
+        return a > b;
+    }
 }

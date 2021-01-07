@@ -13,15 +13,26 @@ public class SearchResultPage extends BaseModel {
         super(driver, SearchResultPage.class.getName());
     }
 
+    /**
+     * Click devices tab
+     */
     public void clickDevicesTab() {
-        actions.clickElement(driver, 10, devicesTab);
+        actions.clickElement(driver, devicesTab);
     }
 
+    /**
+     * Get text of searched device
+     *
+     * @return device name
+     */
     public String getDeviceName() {
-        return actions.getText(driver,firstDevice);
+        return actions.getText(driver, firstDevice);
     }
 
-    public void verifyDeviceName(String expectedDeviceName, String actualDeviceName ) {
+    /**
+     * Verify searched device text equals to expected
+     */
+    public void verifyDeviceName(String expectedDeviceName, String actualDeviceName) {
         validation.verifyTextEqualsToData(actualDeviceName, expectedDeviceName);
     }
 }

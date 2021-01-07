@@ -11,7 +11,7 @@ public class Validation {
 
     private static String className;
 
-    public Validation(String className){
+    public Validation(String className) {
         setClassName(className);
     }
 
@@ -23,20 +23,38 @@ public class Validation {
         Validation.className = className;
     }
 
+    /**
+     * Verify given data are equals
+     *
+     * @param actual
+     * @param expected
+     */
     public void verifyTextEqualsToData(String actual, String expected) {
         LogUtil.log(Constants.VERIFY_TEXT_EQUALS + actual + " || " + expected, LogUtil.LogType.INFO, getClassName());
         Assert.assertEquals(Utils.toUpperCase(actual), Utils.toUpperCase(expected));
     }
 
-    public void verifyTrue(String a, String b) {
+    /**
+     * Verify @param a is true
+     *
+     * @param a
+     */
+    public void verifyConditionIsTrue(boolean a) {
         try {
-            LogUtil.log(Constants.VERIFY_TRUE + a + " " + b, LogUtil.LogType.INFO, getClassName());
-            Assert.assertTrue((Utils.toFloat(a) > Utils.toFloat(b)));
+            LogUtil.log(Constants.VERIFY_TRUE + a , LogUtil.LogType.INFO, getClassName());
+            Assert.assertTrue(a);
         } catch (Exception e) {
             LogUtil.log(Constants.COULD_NOT_VERIFY_TRUE + a, LogUtil.LogType.ERROR, getClassName());
         }
     }
 
+    /**
+     * Verify element is displayed
+     *
+     * @param driver
+     * @param by
+     * @return is displayed
+     */
     public Boolean verifyElementDisplayed(WebDriver driver, By by) {
         try {
             LogUtil.log(Constants.VERIFY_ELEMENT_DISPLAYED + by, LogUtil.LogType.INFO, getClassName());

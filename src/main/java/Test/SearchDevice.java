@@ -6,14 +6,15 @@ import Utils.Constants;
 import org.testng.annotations.Test;
 
 
-public class SearchDevice extends BaseTest{
+public class SearchDevice extends BaseTest {
 
     @Test
     public void searchDevice() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickSearch();
+        mainPage.setSearchInput(Constants.DEVICE_NAME);
 
-        SearchResultPage searchResultPage = mainPage.search(Constants.DEVICE_NAME);
+        SearchResultPage searchResultPage = mainPage.enterSearchIntput();
         searchResultPage.clickDevicesTab();
 
         String actualDeviceName = searchResultPage.getDeviceName();

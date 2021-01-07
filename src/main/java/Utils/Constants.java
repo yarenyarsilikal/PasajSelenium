@@ -6,12 +6,8 @@ public class Constants {
     public static final String LOG4J_PATH = "src/main/resources/log4j.properties";
     public static final String DRIVER_PATH = "C:\\Driver\\chromedriver.exe";
     public static final String DEVICE_NAME = "iphone 12 pro max 512 gb";
-    public static final String MACBOOK_NAME = "Apple MacBook Pro Touch Bar 13 inç";
-
 
     public static final String EMPTY_BASKET_LABEL = "Sepetinizde ürün bulunmamaktadır.";
-
-
 
     //Log Messages
     public static final String SCROLL_TO_END = "Scrolling to end of page";
@@ -31,4 +27,6 @@ public class Constants {
 
     public static final String ERROR = " Error: ";
     public static final String EXPECTED_PRICE = "1000";
+    public static final byte DEFAULT_WAIT_TEN = 10;
+    public static final byte DEFAULT_WAIT_THIRTY = 30;
 }

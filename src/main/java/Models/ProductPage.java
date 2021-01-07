@@ -1,5 +1,6 @@
 package Models;
 
+import Utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -41,16 +42,29 @@ public class ProductPage extends BaseModel {
         public abstract By setLocator();
     }
 
+    /**
+     * Get text of payment amount
+     *
+     * @return payment amount
+     */
     public String getPayment() {
         return actions.getText(driver, price);
     }
 
+    /**
+     * Get text of payment amount
+     *
+     * @return payment amount
+     */
     public String getPaymentAmount(By by) {
         return actions.getAttributeValue(driver, by, DATA_PRICE);
     }
 
+    /**
+     * Compare payment amounts
+     */
     public void comparePayment(String actualPrice, String expectedPrice) {
-        validation.verifyTrue(actualPrice, expectedPrice);
+        validation.verifyConditionIsTrue(Utils.isGreater(Utils.toFloat(actualPrice), Utils.toFloat(expectedPrice)));
     }
 
 }

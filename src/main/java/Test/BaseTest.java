@@ -21,12 +21,12 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Constants.DEFAULT_WAIT_THIRTY, TimeUnit.SECONDS);
         driver.get(Constants.URL);
     }
 
     @AfterTest
-    public void killDriver(){
+    public void killDriver() {
         driver.quit();
     }
 }

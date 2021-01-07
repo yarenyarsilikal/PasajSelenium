@@ -12,9 +12,11 @@ public class FilteredList extends BaseModel {
         super(driver, FilteredList.class.getName());
     }
 
-
+    /**
+     * Choose Macbook from populer filtered list
+     */
     public ProductPage chooseMacbookPro() {
-        actions.clickElement(driver, 10, macbookPro);
+        actions.clickElement(driver, macbookPro);
         return new ProductPage(driver);
     }
 
