@@ -3,22 +3,18 @@ package Models;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class FilteredList extends Actions {
+public class FilteredList extends BaseModel {
 
-    protected static WebDriver driver;
 
     private final By macbookPro = By.xpath("(//*[contains(text(),'Apple MacBook Pro Touch Bar 13 inç')])[1]");
 
-
-    private final String className = this.getClass().getName();
-
-
     public FilteredList(WebDriver driver) {
-        FilteredList.driver = driver;
+        super(driver, FilteredList.class.getName());
     }
 
+
     public ProductPage chooseMacbookPro() {
-        clickElement(driver, 10, macbookPro, className);
+        actions.clickElement(driver, 10, macbookPro);
         return new ProductPage(driver);
     }
 

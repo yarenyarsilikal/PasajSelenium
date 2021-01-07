@@ -4,29 +4,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class SearchResultPage extends Actions {
-    protected static WebDriver driver;
+public class SearchResultPage extends BaseModel {
 
     private final By devicesTab = By.xpath("//a[@title='Cihazlar']");
     private final By firstDevice = By.xpath("//*[@id='tabDevices']/div[1]/a/div/span");
 
-    private final String className = this.getClass().getName();
-
-
     public SearchResultPage(WebDriver driver) {
-        SearchResultPage.driver = driver;
+        super(driver, SearchResultPage.class.getName());
     }
 
-
     public void clickDevicesTab() {
-        clickElement(driver, 10, devicesTab, className);
+        actions.clickElement(driver, 10, devicesTab);
     }
 
     public String getDeviceName() {
-        return getText(driver,firstDevice,className);
+        return actions.getText(driver,firstDevice);
     }
 
     public void verifyDeviceName(String expectedDeviceName, String actualDeviceName ) {
-        verifyTextEqualsToData(actualDeviceName, expectedDeviceName, className);
+        validation.verifyTextEqualsToData(actualDeviceName, expectedDeviceName);
     }
 }

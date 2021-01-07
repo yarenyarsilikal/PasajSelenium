@@ -1,23 +1,22 @@
 package Models;
 
-import Utils.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import Utils.Constants;
 
 
-public class ProductPage extends Actions {
+public class ProductPage extends BaseModel {
 
-    protected static WebDriver driver;
 
     private final By price = By.className("a-price-val");
     private static final By sixMonths = By.xpath("//a[@title='6 AY']");
     private static final By nineMonths = By.xpath("//a[@title='9 AY']");
     private static final By twelveMonths = By.xpath("//a[@title='12 AY']");
 
-    private final String className = this.getClass().getName();
     public static final String DATA_PRICE = "data-price";
 
+    public ProductPage(WebDriver driver) {
+        super(driver, ProductPage.class.getName());
+    }
 
     public enum PaymentCount {
         SIX {
@@ -42,22 +41,16 @@ public class ProductPage extends Actions {
         public abstract By setLocator();
     }
 
-    public ProductPage(WebDriver driver) {
-        ProductPage.driver = driver;
-    }
-
     public String getPayment() {
-        return getText(driver, price, className);
+        return actions.getText(driver, price);
     }
 
     public String getPaymentAmount(By by) {
-        return getAttributeValue(driver, by, DATA_PRICE , className);
+        return actions.getAttributeValue(driver, by, DATA_PRICE);
     }
 
-
-
     public void comparePayment(String actualPrice, String expectedPrice) {
-        verifyTrue((Utils.toFloat(actualPrice) > Utils.toFloat(expectedPrice)), className);
+        validation.verifyTrue(actualPrice, expectedPrice);
     }
 
 }

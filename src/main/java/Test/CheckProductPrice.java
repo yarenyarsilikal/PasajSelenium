@@ -9,11 +9,9 @@ import org.testng.annotations.Test;
 
 public class CheckProductPrice extends BaseTest {
 
-    private MainPage mainPage;
-
     @Test
     public void checkPrice() {
-        mainPage = new MainPage(driver);
+        MainPage mainPage = new MainPage(driver);
 
         PasajPage pasajPage = mainPage.clickPasaj();
         pasajPage.scrollToBottom();
