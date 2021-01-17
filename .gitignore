@@ -39,7 +39,7 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-### Test.SearchDevice ###
+### SearchDevice ###
 ### Ignore all files that could be used to test your code and
 ### you wouldn't want to push
 

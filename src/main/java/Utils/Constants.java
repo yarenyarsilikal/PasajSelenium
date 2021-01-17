@@ -4,7 +4,7 @@ public class Constants {
 
     public static final String URL = "https://www.turkcell.com.tr/";
     public static final String LOG4J_PATH = "src/main/resources/log4j.properties";
-    public static final String DRIVER_PATH = "C:\\Driver\\chromedriver.exe";
+    public static final String DRIVER_PATH = "driver/chromedriver";
     public static final String DEVICE_NAME = "iphone 12 pro max 512 gb";
 
     public static final String EMPTY_BASKET_LABEL = "Sepetinizde ürün bulunmamaktadır.";
