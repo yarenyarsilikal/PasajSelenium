@@ -16,8 +16,9 @@ public class PasajPage extends BaseModel {
     /**
      * Click cart element
      */
-    public void clickCart() {
+    public PasajPage clickCart() {
         actions.clickElement(driver, basket);
+        return this;
     }
 
     /**
@@ -35,15 +36,17 @@ public class PasajPage extends BaseModel {
      * @param expectedLabel
      * @param actualLabel
      */
-    public void verifyEmptyLabel(String expectedLabel, String actualLabel) {
+    public PasajPage verifyEmptyLabel(String expectedLabel, String actualLabel) {
         validation.verifyTextEqualsToData(actualLabel, expectedLabel);
+        return this;
     }
 
     /**
      * Scroll to end of page
      */
-    public void scrollToBottom() {
+    public PasajPage scrollToBottom() {
         actions.scrollToEndOfPage(driver);
+        return this;
     }
 
     /**

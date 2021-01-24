@@ -5,7 +5,6 @@ import Utils.LogUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -28,19 +27,18 @@ public class Actions {
 
     /**
      * Clicks element
-     *
-     * @param driver
+     *  @param driver
      * @param by
      */
     public void clickElement(WebDriver driver, By by) {
         try {
+            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            wait.until(ExpectedConditions.elementToBeClickable(by)).click();
             LogUtil.log(Constants.CLICK_ELEMENT + by, LogUtil.LogType.INFO, getClassName());
-            WebElement element = new WebDriverWait(driver, Constants.DEFAULT_WAIT_TEN).until(ExpectedConditions.elementToBeClickable(by));
-            element.click();
         } catch (Exception e) {
             LogUtil.log(Constants.COULD_NOT_CLICK_ELEMENT + by, LogUtil.LogType.ERROR, getClassName(), e);
         }
-
     }
 
     /**
@@ -52,12 +50,12 @@ public class Actions {
      */
     public void setText(WebDriver driver, By by, CharSequence data) {
         try {
+            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(by)).sendKeys(data);
             LogUtil.log(Constants.SEND_KEY_TO_ELEMENT + data, LogUtil.LogType.INFO, getClassName());
-            driver.findElement(by).sendKeys(data);
         } catch (Exception e) {
             LogUtil.log(Constants.COULD_NOT_SEND_KEY_TO_ELEMENT + by, LogUtil.LogType.ERROR, getClassName(), e);
         }
-
     }
 
     /**
@@ -70,7 +68,8 @@ public class Actions {
     public String getText(WebDriver driver, By by) {
         try {
             LogUtil.log(Constants.GET_TEXT_OF_ELEMENT + by, LogUtil.LogType.INFO, getClassName());
-            String text = driver.findElement(by).getText();
+            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
+            String text = wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText();
             LogUtil.log(Constants.TEXT_OF_ELEMENT + text, LogUtil.LogType.INFO, getClassName());
             return text;
         } catch (Exception e) {
@@ -90,7 +89,8 @@ public class Actions {
     public String getAttributeValue(WebDriver driver, By by, String attribute) {
         try {
             LogUtil.log(Constants.GET_TEXT_OF_ELEMENT + by, LogUtil.LogType.INFO, getClassName());
-            String text = driver.findElement(by).getAttribute(attribute);
+            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
+            String text = wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getAttribute(attribute);
             LogUtil.log(Constants.TEXT_OF_ELEMENT + text, LogUtil.LogType.INFO, getClassName());
             return text;
         } catch (Exception e) {

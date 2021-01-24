@@ -9,14 +9,10 @@ public class SearchDevice extends BaseTest {
     @Test
     public void searchDevice() {
         MainPage mainPage = new MainPage(driver);
-        mainPage.clickSearch();
-        mainPage.setSearchInput(Constants.DEVICE_NAME);
+        mainPage.clickSearch().setSearchInput(Constants.DEVICE_NAME);
 
-        SearchResultPage searchResultPage = mainPage.enterSearchIntput();
-        searchResultPage.clickDevicesTab();
+        SearchResultPage searchResultPage = mainPage.enterSearchIntput().clickDevicesTab();
 
-        String actualDeviceName = searchResultPage.getDeviceName();
-        searchResultPage.verifyDeviceName(Constants.DEVICE_NAME, actualDeviceName);
+        searchResultPage.verifyDeviceName(Constants.DEVICE_NAME, searchResultPage.getDeviceName());
     }
-
 }

@@ -10,8 +10,7 @@ public class CheckEmptyBasket extends BaseTest {
     public void checkEmptyBasket() {
         MainPage mainPage = new MainPage(driver);
 
-        PasajPage pasajPage = mainPage.clickPasaj();
-        pasajPage.clickCart();
+        PasajPage pasajPage = mainPage.clickPasaj().clickCart();
 
         String actualLabel = pasajPage.getEmptyLabel();
         pasajPage.verifyEmptyLabel(Constants.EMPTY_BASKET_LABEL, actualLabel);

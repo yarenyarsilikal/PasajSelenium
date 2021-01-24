@@ -16,8 +16,9 @@ public class SearchResultPage extends BaseModel {
     /**
      * Click devices tab
      */
-    public void clickDevicesTab() {
+    public SearchResultPage clickDevicesTab() {
         actions.clickElement(driver, devicesTab);
+        return this;
     }
 
     /**
@@ -32,7 +33,8 @@ public class SearchResultPage extends BaseModel {
     /**
      * Verify searched device text equals to expected
      */
-    public void verifyDeviceName(String expectedDeviceName, String actualDeviceName) {
+    public SearchResultPage verifyDeviceName(String expectedDeviceName, String actualDeviceName) {
         validation.verifyTextEqualsToData(actualDeviceName, expectedDeviceName);
+        return this;
     }
 }

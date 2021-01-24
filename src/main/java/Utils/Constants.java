@@ -11,7 +11,7 @@ public class Constants {
 
     //Log Messages
     public static final String SCROLL_TO_END = "Scrolling to end of page";
-    public static final String CLICK_ELEMENT = "Clicking on the element || Locator =>";
+    public static final String CLICK_ELEMENT = "Clicked on the element || Locator =>";
     public static final String COULD_NOT_CLICK_ELEMENT = "Could not click on the element || Locator =>";
     public static final String SEND_KEY_TO_ELEMENT = "Sending key to element || Key =>";
     public static final String COULD_NOT_SEND_KEY_TO_ELEMENT = "Could not send key to element || Locator =>";

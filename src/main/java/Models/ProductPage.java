@@ -63,8 +63,9 @@ public class ProductPage extends BaseModel {
     /**
      * Compare payment amounts
      */
-    public void comparePayment(String actualPrice, String expectedPrice) {
+    public ProductPage comparePayment(String actualPrice, String expectedPrice) {
         validation.verifyConditionIsTrue(Utils.isGreater(Utils.toFloat(actualPrice), Utils.toFloat(expectedPrice)));
+        return this;
     }
 
 }

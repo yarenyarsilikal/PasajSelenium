@@ -13,18 +13,12 @@ public class CheckProductPrice extends BaseTest {
     public void checkPrice() {
         MainPage mainPage = new MainPage(driver);
 
-        PasajPage pasajPage = mainPage.clickPasaj();
-        pasajPage.scrollToBottom();
-        pasajPage.clickMacbook();
+        PasajPage pasajPage = mainPage.clickPasaj().scrollToBottom();
 
         FilteredList filteredList = pasajPage.clickMacbook();
         ProductPage productPage = filteredList.chooseMacbookPro();
 
         String actualPrice = productPage.getPayment();
         productPage.comparePayment(actualPrice, Constants.EXPECTED_PRICE);
-
-        String sixMonths = productPage.getPaymentAmount(ProductPage.PaymentCount.SIX.setLocator());
-        String nineMonths = productPage.getPaymentAmount(ProductPage.PaymentCount.NINE.setLocator());
-        productPage.comparePayment(sixMonths, nineMonths);
     }
 }

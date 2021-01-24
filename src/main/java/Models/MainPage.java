@@ -19,8 +19,9 @@ public class MainPage extends BaseModel {
     /**
      * Clicks search element
      */
-    public void clickSearch() {
+    public MainPage clickSearch() {
         actions.clickElement(driver, search);
+        return this;
     }
 
     /**
@@ -28,8 +29,9 @@ public class MainPage extends BaseModel {
      *
      * @param deviceName
      */
-    public void setSearchInput(String deviceName) {
+    public MainPage setSearchInput(String deviceName) {
         actions.setText(driver, searchInput, deviceName);
+        return this;
     }
 
     /**
