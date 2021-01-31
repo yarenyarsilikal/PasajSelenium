@@ -16,7 +16,7 @@ public class FilteredList extends BaseModel {
      * Choose Macbook from populer filtered list
      */
     public ProductPage chooseMacbookPro() {
-        actions.clickElement(driver, macbookPro);
+        actions.clickElement(macbookPro);
         return new ProductPage(driver);
     }
 

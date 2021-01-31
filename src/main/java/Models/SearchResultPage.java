@@ -17,7 +17,7 @@ public class SearchResultPage extends BaseModel {
      * Click devices tab
      */
     public SearchResultPage clickDevicesTab() {
-        actions.clickElement(driver, devicesTab);
+        actions.clickElement(devicesTab);
         return this;
     }
 
@@ -27,7 +27,7 @@ public class SearchResultPage extends BaseModel {
      * @return device name
      */
     public String getDeviceName() {
-        return actions.getText(driver, firstDevice);
+        return actions.getText(firstDevice);
     }
 
     /**

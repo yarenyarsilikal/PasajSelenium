@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class Validation {
+public class Validation extends ElementService {
 
     private static String className;
 
@@ -26,8 +26,8 @@ public class Validation {
     /**
      * Verify given data are equals
      *
-     * @param actual
-     * @param expected
+     * @param actual   value of element
+     * @param expected value of element
      */
     public void verifyTextEqualsToData(String actual, String expected) {
         LogUtil.log(Constants.VERIFY_TEXT_EQUALS + actual + " || " + expected, LogUtil.LogType.INFO, getClassName());
@@ -37,11 +37,11 @@ public class Validation {
     /**
      * Verify @param a is true
      *
-     * @param a
+     * @param a actual condition
      */
     public void verifyConditionIsTrue(boolean a) {
         try {
-            LogUtil.log(Constants.VERIFY_TRUE + a , LogUtil.LogType.INFO, getClassName());
+            LogUtil.log(Constants.VERIFY_TRUE + a, LogUtil.LogType.INFO, getClassName());
             Assert.assertTrue(a);
         } catch (Exception e) {
             LogUtil.log(Constants.COULD_NOT_VERIFY_TRUE + a, LogUtil.LogType.ERROR, getClassName());
@@ -51,8 +51,8 @@ public class Validation {
     /**
      * Verify element is displayed
      *
-     * @param driver
-     * @param by
+     * @param driver web driver
+     * @param by     target element locator
      * @return is displayed
      */
     public Boolean verifyElementDisplayed(WebDriver driver, By by) {

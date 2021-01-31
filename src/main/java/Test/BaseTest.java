@@ -15,7 +15,7 @@ public abstract class BaseTest {
     @BeforeSuite
     public void beforeSuite() {
         PropertyConfigurator.configure(Constants.LOG4J_PATH);
-        System.setProperty("webdriver.chrome.driver", Constants.DRIVER_PATH);
+        System.setProperty("webdriver.chrome.driver", Constants.DRIVER_PATH + "chromedriver");
     }
 
 
@@ -32,7 +32,6 @@ public abstract class BaseTest {
     public void afterMethod() {
         driver.quit();
     }
-
 
 
 }

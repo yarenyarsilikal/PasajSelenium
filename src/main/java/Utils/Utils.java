@@ -9,8 +9,8 @@ public class Utils {
     }
 
     public static float toFloat(String string) {
-        string = string.replace(".","");
-        string = string.replace(',','.');
+        string = string.replace(".", "");
+        string = string.replace(',', '.');
         return Float.parseFloat(string);
     }
 

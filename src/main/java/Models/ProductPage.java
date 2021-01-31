@@ -48,7 +48,7 @@ public class ProductPage extends BaseModel {
      * @return payment amount
      */
     public String getPayment() {
-        return actions.getText(driver, price);
+        return actions.getText(price);
     }
 
     /**
@@ -57,7 +57,7 @@ public class ProductPage extends BaseModel {
      * @return payment amount
      */
     public String getPaymentAmount(By by) {
-        return actions.getAttributeValue(driver, by, DATA_PRICE);
+        return actions.getAttributeValue(by, DATA_PRICE);
     }
 
     /**

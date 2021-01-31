@@ -17,7 +17,7 @@ public class PasajPage extends BaseModel {
      * Click cart element
      */
     public PasajPage clickCart() {
-        actions.clickElement(driver, basket);
+        actions.clickElement(basket);
         return this;
     }
 
@@ -27,14 +27,14 @@ public class PasajPage extends BaseModel {
      * @return cart label
      */
     public String getEmptyLabel() {
-        return actions.getText(driver, emptyBasket);
+        return actions.getText(emptyBasket);
     }
 
     /**
      * Compare to expected and actual label
      *
-     * @param expectedLabel
-     * @param actualLabel
+     * @param expectedLabel label
+     * @param actualLabel label
      */
     public PasajPage verifyEmptyLabel(String expectedLabel, String actualLabel) {
         validation.verifyTextEqualsToData(actualLabel, expectedLabel);
@@ -55,7 +55,7 @@ public class PasajPage extends BaseModel {
      * @return FilteredList object
      */
     public FilteredList clickMacbook() {
-        actions.clickElement(driver, macbook);
+        actions.clickElement(macbook);
         return new FilteredList(driver);
     }
 

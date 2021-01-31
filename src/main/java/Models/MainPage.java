@@ -20,17 +20,17 @@ public class MainPage extends BaseModel {
      * Clicks search element
      */
     public MainPage clickSearch() {
-        actions.clickElement(driver, search);
+        actions.clickElement(search);
         return this;
     }
 
     /**
      * Sets search input
      *
-     * @param deviceName
+     * @param deviceName expected device name
      */
     public MainPage setSearchInput(String deviceName) {
-        actions.setText(driver, searchInput, deviceName);
+        actions.setText(searchInput, deviceName);
         return this;
     }
 
@@ -40,7 +40,7 @@ public class MainPage extends BaseModel {
      * @return SearchResultPage object
      */
     public SearchResultPage enterSearchIntput() {
-        actions.setText(driver, searchInput, Keys.ENTER);
+        actions.setText(searchInput, Keys.ENTER);
         return new SearchResultPage(driver);
     }
 
@@ -50,7 +50,7 @@ public class MainPage extends BaseModel {
      * @return PasajPage object
      */
     public PasajPage clickPasaj() {
-        actions.clickElement(driver, pasaj);
+        actions.clickElement(pasaj);
         return new PasajPage(driver);
     }
 

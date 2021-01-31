@@ -5,11 +5,9 @@ import Utils.LogUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class Actions {
+public class Actions extends ElementService {
 
     private static String className;
 
@@ -27,14 +25,13 @@ public class Actions {
 
     /**
      * Clicks element
-     *  @param driver
-     * @param by
+     *
+     * @param by target element locator
      */
-    public void clickElement(WebDriver driver, By by) {
+    public void clickElement(By by) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-            wait.until(ExpectedConditions.elementToBeClickable(by)).click();
+            getElement(by);
+            getClickableElement(by).click();
             LogUtil.log(Constants.CLICK_ELEMENT + by, LogUtil.LogType.INFO, getClassName());
         } catch (Exception e) {
             LogUtil.log(Constants.COULD_NOT_CLICK_ELEMENT + by, LogUtil.LogType.ERROR, getClassName(), e);
@@ -44,14 +41,12 @@ public class Actions {
     /**
      * Set a text to element
      *
-     * @param driver
-     * @param by
-     * @param data
+     * @param by   target element locator
+     * @param data given text
      */
-    public void setText(WebDriver driver, By by, CharSequence data) {
+    public void setText(By by, CharSequence data) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(by)).sendKeys(data);
+            getElement(by).sendKeys(data);
             LogUtil.log(Constants.SEND_KEY_TO_ELEMENT + data, LogUtil.LogType.INFO, getClassName());
         } catch (Exception e) {
             LogUtil.log(Constants.COULD_NOT_SEND_KEY_TO_ELEMENT + by, LogUtil.LogType.ERROR, getClassName(), e);
@@ -61,15 +56,13 @@ public class Actions {
     /**
      * Get text from element
      *
-     * @param driver
-     * @param by
+     * @param by target element locator
      * @return text of element
      */
-    public String getText(WebDriver driver, By by) {
+    public String getText(By by) {
         try {
             LogUtil.log(Constants.GET_TEXT_OF_ELEMENT + by, LogUtil.LogType.INFO, getClassName());
-            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
-            String text = wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText();
+            String text = getElement(by).getText();
             LogUtil.log(Constants.TEXT_OF_ELEMENT + text, LogUtil.LogType.INFO, getClassName());
             return text;
         } catch (Exception e) {
@@ -81,16 +74,14 @@ public class Actions {
     /**
      * Get a value of an element attribute
      *
-     * @param driver
-     * @param by
-     * @param attribute
+     * @param by        target element locator
+     * @param attribute given attribute of element
      * @return given attribute value of element
      */
-    public String getAttributeValue(WebDriver driver, By by, String attribute) {
+    public String getAttributeValue(By by, String attribute) {
         try {
             LogUtil.log(Constants.GET_TEXT_OF_ELEMENT + by, LogUtil.LogType.INFO, getClassName());
-            WebDriverWait wait = new WebDriverWait(driver, Constants.DEFAULT_WAIT_THIRTY);
-            String text = wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getAttribute(attribute);
+            String text = getElement(by).getAttribute(attribute);
             LogUtil.log(Constants.TEXT_OF_ELEMENT + text, LogUtil.LogType.INFO, getClassName());
             return text;
         } catch (Exception e) {
@@ -102,7 +93,7 @@ public class Actions {
     /**
      * Scroll to end of page
      *
-     * @param driver
+     * @param driver web driver
      */
     public void scrollToEndOfPage(WebDriver driver) {
         LogUtil.log(Constants.SCROLL_TO_END, LogUtil.LogType.INFO, getClassName());
